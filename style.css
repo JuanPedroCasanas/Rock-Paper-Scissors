@@ -1,0 +1,24 @@
+body{
+    display: grid; 
+    justify-items: center; 
+    align-content: center; 
+    row-gap: 20px; 
+    column-gap: 20px; 
+    font-family: 'Times New Roman', Times, serif; 
+    font-weight: bold; 
+    color: crimson; 
+    background-color: black;
+}
+
+div{
+    margin-top: 40px;
+}
+
+button{
+    width: 100px; 
+    height: 25px; 
+    font-family: 'Times New Roman', Times, serif; 
+    font-weight: bold; 
+    color: crimson; 
+    background-color: black;
+}

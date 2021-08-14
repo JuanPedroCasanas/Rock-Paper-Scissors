@@ -1,0 +1,36 @@
+<!--P choose element
+  three buttons for rock paper and scissor
+  let random element array = rock paper scissors
+  button.onclick = playerelement
+  computer element = random pick from array
+
+  function: 
+  if playerelement = computer element ==> draw
+  if player element = rock && computer element = scissors ==> win
+  if player element = scissor && computer element = paper ==> win
+  if player element = paper && computer element = rock ==> win
+  else ==> lose, reset: computer element = random pick from array
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div>
+  <button id="rock" type="button">Rock</button>
+  <button id="paper" type="button">Paper</button>
+  <button id="scissors" type="button">Scissors</button>
+  </div>
+  <div>
+  <button id="play" type="button">Play</button>
+  </div>
+  <p id="result">Select element and hit play, reset changes the computer element.</p>
+  <button id="reset" type="button">Reset</button>
+  <script type="text/javascript" src="scripts.js">
+  </script>
+</body>
+</html>
