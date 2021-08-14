@@ -39,18 +39,18 @@ function randomizeelement (){
 function round (){
     if (playerElement===undefined || computerElement === undefined){
   } else if ((playerElement===computerElement)){
-    result.innerHTML = "Draw";
+    result.innerHTML = "Draw, you picked " + playerElement + ". Computer picked " + computerElement;
     randomElement = randomizeelement();
     computerElement = randomElement;
   } else if ((playerElement==="rock" && computerElement==="scissors")|| 
   (playerElement==="paper" && computerElement==="rock")|| 
   (playerElement==="scissors" && computerElement==="paper")){
-    result.innerHTML = "You win";
+    result.innerHTML = "You win, you picked " + playerElement + ". Computer picked " + computerElement;
     playerScore.innerHTML = ++playerScore.innerHTML;
     randomElement = randomizeelement();
     computerElement = randomElement;
   }else {
-    result.innerHTML = "You lose";
+    result.innerHTML = "You lose, you picked " + playerElement + ". Computer picked " + computerElement;
     randomElement = randomizeelement();
     computerElement = randomElement;
     computerScore.innerHTML = ++computerScore.innerHTML;
@@ -65,7 +65,7 @@ function game(){
     result.innerHTML = "Draw, computer element reseted";
     playerScore.innerHTML = 0;
     computerScore.innerHTML = 0;
-  }else if((computerScore.innerHTML != 5 && playerScore.innerHTML != 5)){
+  }else if((computerScore.innerHTML != 5 || playerScore.innerHTML != 5) && (computerScore.innerHTML <= 5 && playerScore.innerHTML <= 5)){
     round()
   }else if(computerScore.innerHTML < playerScore.innerHTML){
     randomElement = randomizeelement();
