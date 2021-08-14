@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div>
+  <div class="buttons">
   <button id="rock" type="button">Rock</button>
   <button id="paper" type="button">Paper</button>
   <button id="scissors" type="button">Scissors</button>
@@ -28,7 +28,15 @@
   <div>
   <button id="play" type="button">Play</button>
   </div>
-  <p id="result">Select element and hit play, reset changes the computer element.</p>
+  <div class="results">
+  <p id="result" class="result">Select element and hit play, reset changes the computer element.</p>
+  <div>
+  <p class="computer">Computer score: <p id="computerScore">0</p></p>
+  </div>
+  <div>
+  <p class="player">Player score: <p id="playerScore" >0</p></p>
+  </div>
+  </div>
   <button id="reset" type="button">Reset</button>
   <script type="text/javascript" src="scripts.js">
   </script>

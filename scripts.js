@@ -4,34 +4,80 @@ const scissors = document.getElementById("scissors");
 const play = document.getElementById("play");
 const result = document.getElementById("result");
 const reset = document.getElementById("reset");
+const computerScore = document.getElementById("computerScore")
+const playerScore = document.getElementById("playerScore")
 
 let elements = ["rock", "paper", "scissors"];
-let randomNumber = Math.floor(Math.random() * elements.length);
-let randomElementArray = elements.slice(randomNumber, (randomNumber+1))
-let randomElement = randomElementArray.toString();
+
+let randomElement = randomizeelement();
 let computerElement; 
 computerElement = randomElement;
 let playerElement;
+
 
 rock.onclick = ()=>playerElement = "rock";
 paper.onclick = ()=>playerElement = "paper";
 scissors.onclick = ()=>playerElement = "scissors";
 
-play.onclick = function game(){
-  if ((playerElement===computerElement)){
+play.onclick = game;
+
+reset.onclick = ()=>{
+  randomElement = randomizeelement();
+  computerElement = randomElement;
+  result.innerHTML = "Computer element has been changed";
+  playerScore.innerHTML = 0;
+  computerScore.innerHTML = 0;
+}
+
+function randomizeelement (){
+  let randomNumber = Math.floor(Math.random() * elements.length);
+  let randomElementArray = elements.slice(randomNumber, (randomNumber+1))
+  let randomElement = randomElementArray.toString();
+  return randomElement;
+}
+
+function round (){
+    if (playerElement===undefined || computerElement === undefined){
+  } else if ((playerElement===computerElement)){
     result.innerHTML = "Draw";
+    randomElement = randomizeelement();
+    computerElement = randomElement;
   } else if ((playerElement==="rock" && computerElement==="scissors")|| 
   (playerElement==="paper" && computerElement==="rock")|| 
   (playerElement==="scissors" && computerElement==="paper")){
     result.innerHTML = "You win";
+    playerScore.innerHTML = ++playerScore.innerHTML;
+    randomElement = randomizeelement();
+    computerElement = randomElement;
   }else {
     result.innerHTML = "You lose";
+    randomElement = randomizeelement();
+    computerElement = randomElement;
+    computerScore.innerHTML = ++computerScore.innerHTML;
   }
 }
-reset.onclick = ()=>{randomNumber = Math.floor(Math.random() * elements.length);
-  randomElementArray = elements.slice(randomNumber, (randomNumber+1))
-  randomElement = randomElementArray.toString();
+
+function game(){
+  if (playerElement===undefined || computerElement === undefined){
+  }else if (computerScore.innerHTML == 5 && playerScore.innerHTML == 5){
+    randomElement = randomizeelement();
+    computerElement = randomElement;
+    result.innerHTML = "Draw, computer element reseted";
+    playerScore.innerHTML = 0;
+    computerScore.innerHTML = 0;
+  }else if((computerScore.innerHTML != 5 && playerScore.innerHTML != 5)){
+    round()
+  }else if(computerScore.innerHTML < playerScore.innerHTML){
+    randomElement = randomizeelement();
+    computerElement = randomElement;
+    result.innerHTML = "You won, computer element reseted";
+    playerScore.innerHTML = 0;
+    computerScore.innerHTML = 0;
+  }else{   
+  randomElement = randomizeelement();
   computerElement = randomElement;
-  result.innerHTML = "Computer element has been changed";
+  result.innerHTML = "You lost, computer element reseted";
+  playerScore.innerHTML = 0;
+  computerScore.innerHTML = 0;
+  }
 }
-  

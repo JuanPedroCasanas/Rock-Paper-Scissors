@@ -10,7 +10,7 @@ body{
     background-color: black;
 }
 
-div{
+.buttons{
     margin-top: 40px;
 }
 
@@ -21,4 +21,31 @@ button{
     font-weight: bold; 
     color: crimson; 
     background-color: black;
+}
+
+.results{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    width: 500px;
+    height: 200px;
+    border:red solid 1px;
+}
+
+.result{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin: 30px;
+}
+
+.computer, .player{
+    grid-row-start: 1;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
 }
