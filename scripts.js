@@ -65,7 +65,7 @@ function game(){
     result.innerHTML = "Draw, computer element reseted";
     playerScore.innerHTML = 0;
     computerScore.innerHTML = 0;
-  }else if((computerScore.innerHTML != 5 || playerScore.innerHTML != 5) && (computerScore.innerHTML <= 5 && playerScore.innerHTML <= 5)){
+  }else if(computerScore.innerHTML <= 5 && playerScore.innerHTML <= 5){
     round()
   }else if(computerScore.innerHTML < playerScore.innerHTML){
     randomElement = randomizeelement();
