@@ -9,7 +9,7 @@ const playerScore = document.getElementById("playerScore")
 
 let elements = ["rock", "paper", "scissors"];
 
-let randomElement = randomizeelement();
+let randomElement = randomizeElement();
 let computerElement; 
 computerElement = randomElement;
 let playerElement;
@@ -19,65 +19,69 @@ rock.onclick = ()=>playerElement = "rock";
 paper.onclick = ()=>playerElement = "paper";
 scissors.onclick = ()=>playerElement = "scissors";
 
-play.onclick = game;
+play.onclick = playGame;
 
 reset.onclick = ()=>{
-  randomElement = randomizeelement();
+  randomElement = randomizeElement();
   computerElement = randomElement;
   result.innerHTML = "Computer element has been changed";
   playerScore.innerHTML = 0;
   computerScore.innerHTML = 0;
 }
 
-function randomizeelement (){
+function randomizeElement (){
   let randomNumber = Math.floor(Math.random() * elements.length);
   let randomElementArray = elements.slice(randomNumber, (randomNumber+1))
   let randomElement = randomElementArray.toString();
   return randomElement;
 }
 
-function round (){
+function playRound (){
     if (playerElement===undefined || computerElement === undefined){
   } else if ((playerElement===computerElement)){
     result.innerHTML = "Draw, you picked " + playerElement + ". Computer picked " + computerElement;
-    randomElement = randomizeelement();
+    randomElement = randomizeElement();
     computerElement = randomElement;
   } else if ((playerElement==="rock" && computerElement==="scissors")|| 
   (playerElement==="paper" && computerElement==="rock")|| 
   (playerElement==="scissors" && computerElement==="paper")){
     result.innerHTML = "You win, you picked " + playerElement + ". Computer picked " + computerElement;
     playerScore.innerHTML = ++playerScore.innerHTML;
-    randomElement = randomizeelement();
+    randomElement = randomizeElement();
     computerElement = randomElement;
   }else {
     result.innerHTML = "You lose, you picked " + playerElement + ". Computer picked " + computerElement;
-    randomElement = randomizeelement();
+    randomElement = randomizeElement();
     computerElement = randomElement;
     computerScore.innerHTML = ++computerScore.innerHTML;
   }
 }
 
-function game(){
+function playGame(){
   if (playerElement===undefined || computerElement === undefined){
   }else if (computerScore.innerHTML == 5 && playerScore.innerHTML == 5){
-    randomElement = randomizeelement();
+    randomElement = randomizeElement();
     computerElement = randomElement;
     result.innerHTML = "Draw, computer element reseted";
     playerScore.innerHTML = 0;
     computerScore.innerHTML = 0;
-  }else if(computerScore.innerHTML <= 5 && playerScore.innerHTML <= 5){
-    round()
-  }else if(computerScore.innerHTML < playerScore.innerHTML){
-    randomElement = randomizeelement();
-    computerElement = randomElement;
-    result.innerHTML = "You won, computer element reseted";
-    playerScore.innerHTML = 0;
-    computerScore.innerHTML = 0;
-  }else{   
-  randomElement = randomizeelement();
+  }else if((playerScore.innerHTML == 5) && ((playerElement==="rock" && computerElement==="scissors")|| 
+    (playerElement==="paper" && computerElement==="rock")|| 
+    (playerElement==="scissors" && computerElement==="paper"))) {
+      randomElement = randomizeElement();
+      computerElement = randomElement;
+      result.innerHTML = "You won, computer element reseted";
+      playerScore.innerHTML = 0;
+      computerScore.innerHTML = 0;
+  }else if((computerScore.innerHTML == 5) && ((playerElement==="scissors" && computerElement==="rock")|| 
+  (playerElement==="rock" && computerElement==="paper")|| 
+  (playerElement==="paper" && computerElement==="scissors"))) {   
+  randomElement = randomizeElement();
   computerElement = randomElement;
   result.innerHTML = "You lost, computer element reseted";
   playerScore.innerHTML = 0;
   computerScore.innerHTML = 0;
+  }else{
+    playRound()
   }
 }
