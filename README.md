@@ -27,9 +27,9 @@ Maybe I could make multiple javascript sheets for the functions to have
 shorter less cramped code, althought it wouldn't make much of a difference
 in this small project it would build good practice for the future.
 
-I feel like there's no need for an extra variable for converting the array
+(I feel like there's no need for an extra variable for converting the array
 to string and it could all fit inside a slice and then to string variable.
 I should probably check that out in the future to see if it can be simplified
 
 The reset function is a bit convoluted? I feel like it could be simpler and
-less reiterative about all the variables but I'm not sure how to do it
+less reiterative about all the variables but I'm not sure how to do it) ==> both issues have been solved by creating a randomize element function with variables inside its scope.
