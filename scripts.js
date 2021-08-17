@@ -1,7 +1,6 @@
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
-const play = document.getElementById("play");
 const result = document.getElementById("result");
 const reset = document.getElementById("reset");
 const computerScore = document.getElementById("computerScore")
@@ -15,11 +14,9 @@ computerElement = randomElement;
 let playerElement;
 
 
-rock.onclick = ()=>playerElement = "rock";
-paper.onclick = ()=>playerElement = "paper";
-scissors.onclick = ()=>playerElement = "scissors";
-
-play.onclick = playGame;
+rock.addEventListener('click', ()=>{playerElement="rock"; playGame()});
+paper.addEventListener('click', ()=>{playerElement="paper"; playGame()});
+scissors.addEventListener('click', ()=>{playerElement="scissors"; playGame()});
 
 reset.onclick = ()=>{
   randomElement = randomizeElement();
